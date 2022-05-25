@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const User = require('./models/User')
 const auth = require('./routes/auth')
-
+const userinfo = require('./routes/userinfo')
  mongoose.connect('mongodb+srv://Pratap11:QY6we3pEfj5uvlDe@cluster0.oejn7.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser:true 
 }).then(()=>{
@@ -29,7 +29,8 @@ app.get("/viewusers",async (req,res)=>{
     
 })
 
-app.use("/auth", auth)
+app.use("/auth", auth);
+app.use("/details",userinfo)
 app.post("/adduser",async (req,res)=>{
     const user = new User({
          name:"Pratap Simha",

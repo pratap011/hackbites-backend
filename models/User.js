@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
     subscribedDate:{
         type:Date,
         default:Date.now
+    },
+    bmi:{
+        type:Number
+    },
+    daysSincePregnant:{
+        type:Number
     }
 })
 
