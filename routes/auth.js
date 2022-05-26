@@ -6,6 +6,9 @@ const User = require('../models/User');
 auth.post('/register',async (req,res)=>{
     console.log("This is the register route!")
     console.log(req.body.name,req.body.email);
+    if(req.body.email==undefined&&req.body.password==undefined){
+        res.send("Please fill all the fields")
+    }
     const userExists = User.findOne({email:req.body.email},(err,response)=>{
         if(err){
             console.log(err);}
