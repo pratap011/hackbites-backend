@@ -5,6 +5,7 @@ const User = require('../models/User');
 
 auth.post('/register',async (req,res)=>{
     console.log("This is the register route!")
+    console.log(req.body.name,req.body.email);
     const userExists = User.findOne({email:req.body.email},(err,response)=>{
         if(err){
             console.log(err);}
@@ -20,6 +21,7 @@ auth.post('/register',async (req,res)=>{
                     password:req.body.password
                })
                try{
+                   console.log("Reached the register route 7:20")
                     const successUser = user.save();
                     res.send("Success in adding the user!")  
                }
@@ -29,7 +31,6 @@ auth.post('/register',async (req,res)=>{
             }
         }
     });
-    console.log(userExists.email)
   
 })
 
