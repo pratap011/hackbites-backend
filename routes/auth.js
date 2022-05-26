@@ -38,7 +38,8 @@ auth.post('/register',async (req,res)=>{
 })
 
 auth.post("/login",(req,res)=>{
-    console.log("This is the login route");
+    console.log("This is the login route 7:40");
+
     const userLogin = User.findOne({email:req.body.email},(err,response)=>{
         if(err){
             console.log(err)
