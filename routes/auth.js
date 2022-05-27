@@ -50,6 +50,7 @@ auth.post("/login",(req,res)=>{
         }
         else{
             if(!response){
+                res.sendStatus(401);
                 res.send("There is no account with this email!");
 
             }
@@ -59,6 +60,7 @@ auth.post("/login",(req,res)=>{
                     res.send("You are successfully logged in.")
                 }
                 else{
+                    res.sendStatus(401)
                     res.send("You have entered the wrong password.")
                 }
             }

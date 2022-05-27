@@ -26,6 +26,9 @@ const userSchema = new mongoose.Schema({
     },
     daysSincePregnant:{
         type:Number
+    },
+    doctor:{
+        type:String
     }
 })
 
