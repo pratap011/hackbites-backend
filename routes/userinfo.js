@@ -6,7 +6,7 @@ const User = require('../models/User');
 userdetails.post("/",(req,res)=>{
     var bmi = (req.body.weight/(req.body.height*req.body.height))*10000;
     bmi = Math.ceil(bmi)
-    var newValues = {$set:{bmi:bmi,daysSincePregnant:req.body.pregnantDays}};
+    var newValues = {$set:{bmi:bmi,daysSincePregnant:req.body.pregnantDays,partnerNumber:req.body.partnerNumber,doctor:req.body.doctor}};
     const userinfo = User.updateOne({email:req.query.email},newValues,(err)=>{
         if(err){
             console.log(err)
