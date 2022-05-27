@@ -14,6 +14,7 @@ auth.post('/register',async (req,res)=>{
             console.log(err);}
         else{
             if(response){
+                res.sendStatus(409);
                 res.send("The email already exists")
             }
             else{

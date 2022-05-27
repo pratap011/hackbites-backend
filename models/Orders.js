@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema(
         orderPlacedDate:{
             type:Date
         },
-        dateOfArrival:{
+        timeOfArrival:{
             type:Date
         },
         orderQuantity:{
