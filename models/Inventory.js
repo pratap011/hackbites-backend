@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const inventorySchema = new mongoose.Schema({
-    product:
-        [
-            {meal:{
+    
+        
+            meal:{
                 type:String
             },
             price:{
@@ -11,9 +11,10 @@ const inventorySchema = new mongoose.Schema({
             },
             quantity:{
                 type:Number
-            }}
-        ]
+            }
+        
     
 })
 
 
+module.exports = mongoose.model('Inventory',inventorySchema);
