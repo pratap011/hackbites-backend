@@ -19,3 +19,6 @@ The user authentication routes are as follows-
     Please pass the email of the user as a query string parameter for this route 
     
     
+
+## Checking inventory - /inventory/getlist
+ No parameters required. It's a GET request
