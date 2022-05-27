@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
     },
     doctor:{
         type:String
+    },
+    partnerNumber:{
+        type:Number
     }
 })
 

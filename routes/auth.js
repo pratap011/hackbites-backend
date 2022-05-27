@@ -51,7 +51,7 @@ auth.post("/login",(req,res)=>{
         else{
             if(!response){
                 res.sendStatus(401);
-                res.send("There is no account with this email!");
+                res.send("There is no account with this email");
 
             }
             else{
