@@ -15,7 +15,7 @@ The user authentication routes are as follows-
   Parameters required for body - {email,password}
   
   ## User info - /details
-    Parameters required for body - {height, weight, days since pregnant}
+    Parameters required for body - {height, weight, days since pregnant, doctor, partnerNumber}
     Please pass the email of the user as a query string parameter for this route 
     
     
