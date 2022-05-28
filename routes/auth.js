@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 
 
-auth.post('/register',async (req,res)=>{
+auth.post('/register', async (req, res) => {
     console.log("This is the register route!")
     console.log(req.body.name,req.body.email);
     if(req.body.email==undefined&&req.body.password==undefined){
@@ -17,7 +17,7 @@ auth.post('/register',async (req,res)=>{
                 res.sendStatus(409);
                 res.send("The email already exists")
             }
-            else{
+            else {
                 const user = new User({
                     name:req.body.name,
                     age:req.body.age,
