@@ -12,7 +12,7 @@ userdetails.post("/",(req,res)=>{
             console.log(err)
         }
         else{
-            res.send("User info is added to the database!")
+            res.send("User info is added to the database")
         }
     })
 })
