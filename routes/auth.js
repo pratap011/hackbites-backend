@@ -52,17 +52,17 @@ auth.post("/login",(req,res)=>{
         else{
             if(!response){
                 res.sendStatus(401);
-                res.send("There is no account with this email");
+                
 
             }
             else{
                 if(req.body.password==response.password){
                     res.sendStatus(200);
-                    res.send("You are successfully logged in.")
+                
                 }
                 else{
                     res.sendStatus(401)
-                    res.send("You have entered the wrong password.")
+                
                 }
             }
         }
