@@ -11,7 +11,7 @@ const orderSchema = new mongoose.Schema(
             required:true
         },
         timeOfArrival:{
-            type:Number,
+            type:String,
             required:true
         },
         orderQuantity:{

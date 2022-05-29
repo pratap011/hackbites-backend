@@ -19,6 +19,7 @@ inventory.post("/additem",(req,res)=>{
 
 
 inventory.get("/getlist",(req,res)=>{
+    
     const viewInventory = Inventory.find((err,result)=>{
         if(err){
             console.log(err);
