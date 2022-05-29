@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const exerciseSchema = new mongoose.Schema({
+    bmi:{
+        type:Number,
+        required:true
+    },
     title:{
         type:String,
         required:true

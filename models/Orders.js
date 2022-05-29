@@ -3,19 +3,26 @@ const mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema(
     {
         user:{
-            type:String
+            type:mongoose.Types.ObjectId,
+            required:true
         },
         orderPlacedDate:{
-            type:Date
+            type:Date,
+            required:true
         },
         timeOfArrival:{
-            type:Date
+            type:Number,
+            required:true
         },
         orderQuantity:{
-            type:Number
+            type:Number,
+            required:true
         },
         orderType:{
-            type:String
+            type:mongoose.Types.ObjectId,
+            required:true
         }
     }
 )
+
+module.exports = mongoose.model("Orders",orderSchema);

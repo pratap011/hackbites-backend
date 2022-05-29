@@ -7,6 +7,7 @@ const User = require('./models/User')
 const auth = require('./routes/auth');
 const exercise = require('./routes/exercise');
 const inventory = require('./routes/inventory');
+const orders = require('./routes/orders');
 const userinfo = require('./routes/userinfo')
 const port = process.env.PORT||4000
  mongoose.connect('mongodb+srv://Pratap11:QY6we3pEfj5uvlDe@cluster0.oejn7.mongodb.net/?retryWrites=true&w=majority',{
@@ -36,6 +37,7 @@ app.use("/auth", auth);
 app.use("/details",userinfo);
 app.use("/inventory",inventory);
 app.use("/exercises",exercise);
+app.use("/order",orders)
 app.post("/adduser",async (req,res)=>{
     const user = new User({
          name:"Pratap Simha",

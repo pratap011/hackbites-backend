@@ -1,9 +1,11 @@
 const express = require('express');
 const Exercise=require('../models/Exercises');
+const User = require('../models/User');
 const exercise = express.Router();
 
 exercise.post("/addexercise", (req,res)=>{
     const exerciseschema = new Exercise({
+        bmi:req.body.bmi,
         title:req.body.title,
         info:req.body.info
     })
@@ -19,15 +21,45 @@ exercise.post("/addexercise", (req,res)=>{
 })
 
 exercise.get("/view",(req,res)=>{
-    const exercisesResult = Exercise.find((err,result)=>{
-        if(err){
-            console.log(err)
-            res.status(501).send("We are sorry, could not fetch exercises")
+    const userbmi = User.findOne({email:req.query.email},(err,result)=>{
+        if(result.bmi>=18&&result.bmi<=25){
+            const exercisesResult = Exercise.find({bmi:20},(err,result)=>{
+                if(err){
+                    console.log(err)
+                    res.status(501).send("We are sorry, could not fetch exercises")
+                }
+                else{
+                    res.send(result);
+                }
+        
+            })
+            
+        }
+        else if(result.bmi>25&&result.bmi<=30){
+            const exercisesResult = Exercise.find({bmi:26},(err,result)=>{
+                if(err){
+                    console.log(err)
+                    res.status(501).send("We are sorry, could not fetch exercises")
+                }
+                else{
+                    res.send(result);
+                }
+        
+            })
         }
         else{
-            res.send(result);
+            const exercisesResult = Exercise.find({bmi:31},(err,result)=>{
+                if(err){
+                    console.log(err)
+                    res.status(501).send("We are sorry, could not fetch exercises")
+                }
+                else{
+                    res.send(result);
+                }
+        
+            })
         }
-
     })
+    
 })
 module.exports = exercise;
