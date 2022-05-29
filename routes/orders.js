@@ -17,7 +17,7 @@ orders.post("/addorder",(req,res)=>{
         })
         try{
             const saveorder = addorder.save();
-            res.status(200).send("Order was placed");
+            res.status(200).send(`Your order will arrive by ${d}`);
         }
         catch{
             res.status(501).send("Something's wrong. Please try later.")
