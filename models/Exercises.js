@@ -12,6 +12,9 @@ const exerciseSchema = new mongoose.Schema({
     info:{
         type:String,
         requried:true
+    },
+    link:{
+        type:String
     }
 })
 
