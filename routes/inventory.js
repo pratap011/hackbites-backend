@@ -7,7 +7,8 @@ inventory.post("/additem",(req,res)=>{
         meal:req.body.meal,
         price:req.body.price,
         quantity:req.body.quantity,
-        url:req.body.url
+        url:req.body.url,
+        info:req.body.info
     })
     try{
         const successInventory = inventoryProduct.save()
