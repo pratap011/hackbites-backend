@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    pid:{
+        type:Number,
+        required:true
+    },
     subscribedDate:{
         type:Date,
         default:Date.now

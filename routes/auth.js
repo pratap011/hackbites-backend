@@ -6,6 +6,7 @@ const User = require('../models/User');
 
 auth.post('/register', async (req, res) => {
     console.log("This is the register route!")
+    var val = Math.floor(1000 + Math.random() * 9000);
     console.log(req.body.name,req.body.email);
     if(req.body.email==undefined&&req.body.password==undefined){
         res.send("Please fill all the fields")
@@ -23,13 +24,13 @@ auth.post('/register', async (req, res) => {
                     name:req.body.name,
                     age:req.body.age,
                     email:req.body.email,
-                    password:req.body.password
+                    password:req.body.password,
+                    pid:val
                })
                try{
                    console.log("Reached the register route 7:20");
                     const successUser = user.save();
-                    res.sendStatus(200);
-                    res.send("Success in adding the user!")  
+                    res.status(200).send("You are now registered!")
                }
                catch(err){
                    console.log(err)
