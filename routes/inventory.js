@@ -3,6 +3,7 @@ const inventory = express.Router();
 const Inventory = require("../models/Inventory");
 
 inventory.post("/additem",(req,res)=>{
+    console.log("Reached post route")
     const inventoryProduct = new Inventory({
         meal:req.body.meal,
         price:req.body.price,
