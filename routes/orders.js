@@ -4,6 +4,7 @@ const User = require('../models/User');
 const orders = express.Router();
 
 orders.post("/addorder",(req,res)=>{
+    console.log("no changes")
     var d = new Date();
     d = new Date(d.setHours(d.getHours() + 2)).toLocaleTimeString();
 
