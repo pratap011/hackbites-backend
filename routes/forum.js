@@ -47,7 +47,7 @@ forum.post("/addanswer",(req,res)=>{
 
 forum.get("/getquestion",(req,res)=>{
     const getuser = User.findOne({email:req.query.email},(err,result)=>{
-        const findquestion = Questions.find({user:result._id},(err,data)=>{
+        const findquestion = Questions.find({user:result.name},(err,data)=>{
             if(err){
                 res.status(501).send("An error has occured");
             }
