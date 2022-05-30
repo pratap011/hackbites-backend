@@ -9,7 +9,8 @@ const exercise = require('./routes/exercise');
 const forum = require('./routes/forum');
 const inventory = require('./routes/inventory');
 const orders = require('./routes/orders');
-const userinfo = require('./routes/userinfo')
+const userinfo = require('./routes/userinfo');
+const cookieParser = require('cookie-parser');
 const port = process.env.PORT||4000
  mongoose.connect('mongodb+srv://Pratap11:QY6we3pEfj5uvlDe@cluster0.oejn7.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser:true 
@@ -33,6 +34,8 @@ app.get("/viewusers",async (req,res)=>{
     });
     
 })
+
+app.use(cookieParser);
 
 app.use("/auth", auth);
 app.use("/details",userinfo);

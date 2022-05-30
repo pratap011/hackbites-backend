@@ -3,6 +3,7 @@ const User = require('../models/User');
 
 
 
+
 auth.post('/register', async (req, res) => {
     console.log("This is the register route!")
     console.log(req.body.name,req.body.email);
@@ -57,7 +58,12 @@ auth.post("/login",(req,res)=>{
             }
             else{
                 if(req.body.password==response.password){
-                    res.sendStatus(200);
+                    const cookie_data = {
+                        email:response.email,
+                        password:response.password
+                    }
+                    res.cookie("userData",cookie_data,{maxAge:900000000})
+                    res.status(200).send("Logged in");
                 
                 }
                 else{
