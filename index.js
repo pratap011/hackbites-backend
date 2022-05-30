@@ -34,9 +34,6 @@ app.get("/viewusers",async (req,res)=>{
     });
     
 })
-
-app.use(cookieParser);
-
 app.use("/auth", auth);
 app.use("/details",userinfo);
 app.use("/inventory",inventory);
