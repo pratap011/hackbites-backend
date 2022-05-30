@@ -21,6 +21,14 @@ const userSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    goodies:{
+        type:Number,
+        default:0
+    },
+    waterIntake:{
+        type:Number,
+        default:0
+    },
     subscribedDate:{
         type:Date,
         default:Date.now

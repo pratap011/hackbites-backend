@@ -34,7 +34,7 @@ inventory.get("/getlist",(req,res)=>{
             }
         })
     }
-    else{ const viewInventory = Inventory.find((err,result)=>{
+    else{ const viewInventory = Inventory.find({ayurvedic:false},(err,result)=>{
         if(err){
             console.log(err);
 

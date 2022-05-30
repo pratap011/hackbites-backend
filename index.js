@@ -1,6 +1,7 @@
 
 
 const express = require('express');
+const nodeCron = require('node-cron');
 const app = express();
 const mongoose = require('mongoose');
 const User = require('./models/User')
@@ -11,6 +12,7 @@ const inventory = require('./routes/inventory');
 const orders = require('./routes/orders');
 const userinfo = require('./routes/userinfo');
 const cookieParser = require('cookie-parser');
+const diet = require('./routes/diet');
 const port = process.env.PORT||4000
  mongoose.connect('mongodb+srv://Pratap11:QY6we3pEfj5uvlDe@cluster0.oejn7.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser:true 
@@ -34,14 +36,23 @@ app.get("/viewusers",async (req,res)=>{
     });
     
 })
+
+
+
+
 app.use("/auth", auth);
 app.use("/details",userinfo);
 app.use("/inventory",inventory);
 app.use("/exercises",exercise);
 app.use("/order",orders)
 app.use("/forum",forum);
+app.use("/diet",diet);
+
 app.get("/",(req,res)=>{
     res.send(`You have reached the server for HackBites TEMP team.`)
+    const job =nodeCron.schedule("*/5 * * * * *",()=>{
+        console.log("Reached")
+    })
 })
 app.post("/adduser",async (req,res)=>{
     const user = new User({
