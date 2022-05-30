@@ -53,6 +53,7 @@ userdetails.post("/addinfo",(req,res)=>{
 
 // get details of user
 userdetails.get("/getInfo", (req, res) => {
+    console.log("nO CHANGES")
     const userinfo = User.findOne({ email: req.query.email }, (err, response) => {
         if (err) {
             res.status(300).send(err)
