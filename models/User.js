@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     partnerNumber:{
         type:Number
     },
-    tracker:[{doctor:{type:String},week:{type:Number,default:0},size:{type:Number,default:0},weight:{type:Number,default:0},bp:{type:String, default:"-"},heart:{type:Number,default:0},temperature:{type:Number,default:0}}]
+    tracker:[{doctor:{type:String},date:{type:Date,default: Date.now()},week:{type:Number,default:0},size:{type:Number,default:0},weight:{type:Number,default:0},bp:{type:String, default:"-"},heart:{type:Number,default:0},temperature:{type:Number,default:0}}]
 })
 
 module.exports = mongoose.model('User',userSchema);
