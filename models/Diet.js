@@ -1,3 +1,4 @@
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 
 const dietSchema = new mongoose.Schema({
@@ -8,9 +9,8 @@ const dietSchema = new mongoose.Schema({
     plan:{
         type:String,
         required:true
-    },
-    toEat:{type:Array}
+    }
 
 })
 
-module.export = mongoose.model("dietSchema",dietSchema);
+module.exports = mongoose.model("dietSchema",dietSchema);

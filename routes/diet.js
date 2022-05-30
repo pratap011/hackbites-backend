@@ -1,9 +1,10 @@
 const express = require('express');
 const User = require('../models/User');
+const Diet = require('../models/Diet')
 const diet = express.Router();
 const nodeCron=require('node-cron');
 diet.get("/addgoodies",(req,res)=>{
-    const finduser = User.findOneAndUpdate({email:req.query.email},{$inc:{goodies:2}},(err,result)=>{
+    const finduser = User.findOneAndUpdate({email:req.query.email},{$inc:{goodies:5}},(err,result)=>{
         if(err){
             res.status(501).send("An error occured");
         }
@@ -50,6 +51,20 @@ diet.post("/updatewater",(req,res)=>{
             res.status(200).send("Updated");
         }
     })
+})
+
+diet.post("/add",(req,res)=>{
+    const dietplan = new Diet({
+        email:req.body.email,
+        plan:req.body.plan
+    })
+    try{
+        const savediet = dietplan.save();
+        res.status(200).send("Added the diet plan")
+    }
+    catch{
+        res.status(501).send("Could not add")
+    }
 })
 
 module.exports=diet;
