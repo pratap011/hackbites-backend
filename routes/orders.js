@@ -6,7 +6,7 @@ const orders = express.Router();
 orders.post("/addorder",(req,res)=>{
     console.log("no");
     var d = new Date();
-    d = new Date(d.setHours(d.getHours() + 5)).toLocaleTimeString();
+    d = new Date(d.setHours(d.getHours() + 7)).toLocaleTimeString();
 
     const finduser = User.findOne({email:req.query.email},(err,result)=>{
         const addorder = new Orders({
