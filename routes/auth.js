@@ -41,6 +41,7 @@ auth.post('/register', async (req, res) => {
 })
 
 auth.post("/login",(req,res)=>{
+
     console.log("This is the login route 7:40");
     if(req.body.email==undefined&&req.body.password==undefined){
         res.send("Please fill all the fields")
@@ -58,11 +59,6 @@ auth.post("/login",(req,res)=>{
             }
             else{
                 if(req.body.password==response.password){
-                    const cookie_data = {
-                        email:response.email,
-                        password:response.password
-                    }
-                    res.cookie("userData",cookie_data,{maxAge:900000000})
                     res.status(200).send("Logged in");
                 
                 }
