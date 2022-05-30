@@ -12,6 +12,9 @@ const inventorySchema = new mongoose.Schema({
             quantity:{
                 type:Number
             },
+            info:{
+                type:String
+            },
             url:{
                 type:String
             }
