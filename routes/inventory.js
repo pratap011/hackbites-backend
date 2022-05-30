@@ -24,7 +24,7 @@ inventory.post("/additem",(req,res)=>{
 
 inventory.get("/getlist",(req,res)=>{
     
-    if(req.query.ayurvedic=true){
+    if(req.query.ayurvedic){
         const viewInventory = Inventory.find({ayurvedic:true},(err,result)=>{
             if(err){
                 res.status(501).send("An error occured in the server")
