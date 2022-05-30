@@ -25,4 +25,17 @@ orders.post("/addorder",(req,res)=>{
     })
 })
 
+
+orders.get("/vieworder",(req,res)=>{
+    const finduser = User.findOne({email:req.query.email},(err,result)=>{
+        const myorder = Orders.find({user:result._id},(err,data)=>{
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.status(200).send(data);
+            }
+        })
+    })
+})
 module.exports = orders;
