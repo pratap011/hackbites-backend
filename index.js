@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const User = require('./models/User')
 const auth = require('./routes/auth');
 const exercise = require('./routes/exercise');
+const forum = require('./routes/forum');
 const inventory = require('./routes/inventory');
 const orders = require('./routes/orders');
 const userinfo = require('./routes/userinfo')
@@ -38,6 +39,10 @@ app.use("/details",userinfo);
 app.use("/inventory",inventory);
 app.use("/exercises",exercise);
 app.use("/order",orders)
+app.use("/forum",forum);
+app.get("/",(req,res)=>{
+    res.send("You have reached the server for HackBites TEMP team.")
+})
 app.post("/adduser",async (req,res)=>{
     const user = new User({
          name:"Pratap Simha",
