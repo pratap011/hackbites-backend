@@ -7,7 +7,8 @@ exercise.post("/addexercise", (req,res)=>{
     const exerciseschema = new Exercise({
         bmi:req.body.bmi,
         title:req.body.title,
-        info:req.body.info
+        info:req.body.info,
+        link:req.body.link
     })
     try{
         const exerciseSuccess = exerciseschema.save();
