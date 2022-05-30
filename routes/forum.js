@@ -11,7 +11,7 @@ forum.post("/addquestion",(req,res)=>{
         }
         else{
             const addquestion = new Questions({
-                user:response._id,
+                user:response.name,
                 question:req.body.question
             })
             try{
