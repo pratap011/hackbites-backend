@@ -33,4 +33,5 @@ inventory.get("/getlist",(req,res)=>{
         }
     })
 })
+
 module.exports = inventory;

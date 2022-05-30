@@ -15,6 +15,9 @@ const inventorySchema = new mongoose.Schema({
             info:{
                 type:String
             },
+            ayurvedic:{
+                type:Boolean
+            },
             url:{
                 type:String
             }
