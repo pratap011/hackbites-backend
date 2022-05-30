@@ -21,6 +21,7 @@ userdetails.post("/", (req, res) => {
 
 userdetails.post("/addinfo",(req,res)=>{
     const newValues={
+        doctor:req.body.doctor,
         week:req.body.week,
         size:req.body.size,
         weight:req.body.weight,
