@@ -40,6 +40,7 @@ diet.get("/start",(req,res)=>{
             }
         })
     })
+    res.send("Started")
 })
 
 diet.post("/updatewater",(req,res)=>{
