@@ -9,7 +9,8 @@ inventory.post("/additem",(req,res)=>{
         price:req.body.price,
         quantity:req.body.quantity,
         url:req.body.url,
-        info:req.body.info
+        info:req.body.info,
+        ayurvedic:eq.body.ayurvedic
     })
     try{
         const successInventory = inventoryProduct.save()
@@ -23,7 +24,17 @@ inventory.post("/additem",(req,res)=>{
 
 inventory.get("/getlist",(req,res)=>{
     
-    const viewInventory = Inventory.find((err,result)=>{
+    if(req.query.ayurvedic=true){
+        const viewInventory = Inventory.find({ayurvedic:true},(err,result)=>{
+            if(err){
+                res.status(501).send("An error occured in the server")
+            }
+            else{
+                res.send(result)
+            }
+        })
+    }
+    else{ const viewInventory = Inventory.find((err,result)=>{
         if(err){
             console.log(err);
 
@@ -31,7 +42,8 @@ inventory.get("/getlist",(req,res)=>{
         else{
             res.send(result);
         }
-    })
+    })}
+   
 })
 
 module.exports = inventory;
