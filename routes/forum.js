@@ -59,7 +59,6 @@ forum.get("/getquestion",(req,res)=>{
 })
 
 forum.get("/getallquestion",(req,res)=>{
-    console.log("Route")
     const getquestion = Questions.find((err,result)=>{
         if(err){
             res.status(501).send("An error has occured")
