@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema(
             required:true
         },
         orderType:{
-            type:mongoose.Types.ObjectId,
+            type:String,
             required:true
         }
     }

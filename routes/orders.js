@@ -13,7 +13,7 @@ orders.post("/addorder",(req,res)=>{
             orderPlacedDate:Date.now(),
             timeOfArrival:d,
             orderQuantity:req.body.quantity,
-            orderType:req.body.id
+            orderType:req.body.name
         })
         try{
             const saveorder = addorder.save();
