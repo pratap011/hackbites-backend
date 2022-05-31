@@ -55,17 +55,32 @@ diet.post("/updatewater",(req,res)=>{
 })
 
 diet.post("/add",(req,res)=>{
-    const dietplan = new Diet({
-        email:req.body.email,
-        plan:req.body.plan
+    const plan = Diet.findOne({email:req.body.email},(err,data)=>{
+        if(data){
+            const updateplan = Diet.updateOne({email:req.body.email},{plan:req.body.plan},(err,result)=>{
+                if(err){
+                    res.status(501).send("Could not add")
+                }
+                else{
+                    res.status(200).send("Plan added")
+                }
+            })
+        }
+        else{
+            const dietplan = new Diet({
+                email:req.body.email,
+                plan:req.body.plan
+            })
+            try{
+                const savediet = dietplan.save();
+                res.status(200).send("Added the diet plan")
+            }
+            catch{
+                res.status(501).send("Could not add")
+            }
+        }
     })
-    try{
-        const savediet = dietplan.save();
-        res.status(200).send("Added the diet plan")
-    }
-    catch{
-        res.status(501).send("Could not add")
-    }
+    
 })
 
 diet.get("/getmealplan",(req,res)=>{
