@@ -21,6 +21,16 @@ inventory.post("/additem",(req,res)=>{
     }
 })
 
+inventory.post("/getlist",(req,res)=>{
+    const viewInventory = Inventory.updateMany({ayurvedic:false},(err,result)=>{
+        if(err){
+            res.status(501).send("An error occured in the server")
+        }
+        else{
+            res.send(result)
+        }
+    })
+})
 
 inventory.get("/getlist",(req,res)=>{
     

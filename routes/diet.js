@@ -68,4 +68,15 @@ diet.post("/add",(req,res)=>{
     }
 })
 
+diet.get("/getmealplan",(req,res)=>{
+    const mealplan = Diet.findOne({email:req.query.email},(err,result)=>{
+        if(err){
+            res.status(501).send("Error")
+        }
+        else{
+            res.status(200).send(result);
+        }
+    })
+})
+
 module.exports=diet;
