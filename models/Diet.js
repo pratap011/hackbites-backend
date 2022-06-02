@@ -9,6 +9,14 @@ const dietSchema = new mongoose.Schema({
     plan:{
         type:String,
         required:true
+    },
+    pid:{
+        type:Number,
+        required:true
+    },
+    date:{
+        type:Date,
+        required:true
     }
 
 })

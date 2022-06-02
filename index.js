@@ -50,9 +50,6 @@ app.use("/diet",diet);
 
 app.get("/",(req,res)=>{
     res.send(`You have reached the server for HackBites TEMP team.`)
-    const job =nodeCron.schedule("*/5 * * * * *",()=>{
-        console.log("Reached")
-    })
 })
 app.post("/adduser",async (req,res)=>{
     const user = new User({
