@@ -13,7 +13,13 @@ const orders = require('./routes/orders');
 const userinfo = require('./routes/userinfo');
 const cookieParser = require('cookie-parser');
 const diet = require('./routes/diet');
-const port = process.env.PORT||4000
+const {ocrSpace}=require('ocr-space-api-wrapper');
+const fs = require('fs')
+const path = require('path')
+const multer = require('multer');
+const upload = multer({})
+
+const port = process.env.PORT||5000
  mongoose.connect('mongodb+srv://Pratap11:QY6we3pEfj5uvlDe@cluster0.oejn7.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser:true 
 }).then(()=>{
@@ -23,6 +29,7 @@ const port = process.env.PORT||4000
 })
 
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 app.get("/viewusers",async (req,res)=>{
     const user = User.findOne({name:"Pratap Simha"},(err,userObj)=>{
 
@@ -38,6 +45,16 @@ app.get("/viewusers",async (req,res)=>{
 })
 
 
+
+const handleUpload = (req,res,next)=>{
+    console.log(req.files)
+    const tmp = fs.writeFileSync(
+        path.join(__dirname, './test.png'),
+        req.files[0].buffer)
+    res.send("Uploaded")
+    // const upl = fs.writeFileSync(path.join(__dirname, '/test.pdf'), file);
+    // res.send("file has been uploaded");
+}
 
 
 app.use("/auth", auth);
@@ -65,6 +82,17 @@ app.post("/adduser",async (req,res)=>{
     }
 })   
 
+// app.post("/getocr",async (req,res)=>{
+//     try{
+//         const res1 = await ocrSpace('./sample.pdf', {apiKey:'K87663152988957'})
+//         console.log(res1)
+//     }
+//     catch{
+//         console.log("Error");
+//     }
+// })
+
+app.post("/testupload",upload.any(),handleUpload)
 
 app.listen(port,(err)=>{
     if(err){
